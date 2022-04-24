@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "ShortMe - shorten your URL!";
+}
+
+@model ShortenLinkViewModel;
+
+
+
+<div class="text-center">
+
+    <h1 class="display-4">Shorten your link here</h1>
+
+        <form method="post">
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label asp-for="OriginalUrl"></label>
+                <input asp-for="OriginalUrl" class="form-control" />
+                <span asp-validation-for="OriginalUrl" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ShortUrl"></label>
+                <input asp-for="ShortUrl" value=@Model?.ShortUrl class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Create short URL now!</button>
+            </div>
+
+        </form>
+</div>
+
+<a asp-action="All" asp-controller="Home"> Show all my shorts</a>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "ShortMe - shorten your URL!";
+}
+
+@model IEnumerable<ShortenLinkViewModel>;
+
+
+
+<div class="text-center">
+
+    <h1 class="display-4">All your short links</h1>
+
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        @item.OriginalUrl
+                    </div>
+                    <div class="col-md-4 text-right">
+                        @item.ShortUrl
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
